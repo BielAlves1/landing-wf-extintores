@@ -81,6 +81,21 @@ if (window.AOS && !reducedMotion) {
   AOS.init({ duration: 750, easing: 'ease-out-cubic', once: false, mirror: true, offset: 70, anchorPlacement: 'top-bottom' });
   document.body.classList.add('animations-ready');
 }
+const galleryItems = document.querySelectorAll('.services-gallery-item');
+if (galleryItems.length && typeof window.GLightbox === 'function') {
+  GLightbox({
+    selector: '.services-gallery-item',
+    touchNavigation: true,
+    keyboardNavigation: true,
+    closeOnOutsideClick: true,
+    zoomable: true,
+    draggable: true,
+    loop: false,
+    openEffect: reducedMotion ? 'none' : 'zoom',
+    closeEffect: reducedMotion ? 'none' : 'zoom',
+    slideEffect: reducedMotion ? 'none' : 'slide',
+  });
+}
 const pauseButton = document.querySelector('.banner-pause');
 let manuallyPaused = reducedMotion;
 
